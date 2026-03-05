@@ -1,14 +1,33 @@
 ---
 title: "PS270 Final Project"
-author: "Your Name Here"
+author: "Quincy Greenee"
 description: "My final project"
 output:
   distill::distill_article:
     self_contained: false
 ---
 
+```{r}
+library(tidyverse)
+library(ggplot2) 
+```
 
 
 ## Project thoughts
 
-I am interested in exploring data related to...
+I'm interested in exploring data related to overall public or Internet attitudes, and how they relate to voting trends. For example, the prevalence of memes, viral content, profile interactions, etc. and how voting trends are effected in these areas.
+
+##Milestone 2
+
+My research question is: how did social media usage impact voting behavior in the 2020 election? My hypothesis is that, while there could be a number of confounding variables, voters who had the highest prevalence of social media use tended to vote more Republican. I base this theory off of the amount of right-leaning content creators I notice that attract young, social media-heavy crowds. However, both parties practice this so there could be more Democrat voters, especially considering they won the 2020 presidential election. The explanatory variables in this study are "media use last 24 hours", and "recent social media use", which details what kind of social media the person is doing (posting, commenting, watching videos, etc.). The outcome variable of interest is party preference among voters, measured by which party (Democrat or Republican) each participant voted for. A trend towards social media use increasing likelihood of Republican voting would support my hypothesis, while the inverse would disprove my hypothesis.
+
+
+```{r}
+voter_data <- read_csv("data/DataQuincy.csv", show_col_types = FALSE)
+```
+
+```{r}
+glimpse(voter_data)  
+``` 
+
+
