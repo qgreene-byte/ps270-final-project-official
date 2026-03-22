@@ -42,8 +42,7 @@ view(data)
 
 
 ```{r}
-
-
+ 
 data |>
   filter(!is.na(CC20_300_4), !is.na(CL_2020ppep)) |>
   mutate(
