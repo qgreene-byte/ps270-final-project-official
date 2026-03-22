@@ -23,11 +23,50 @@ My research question is: how did social media usage impact voting behavior in th
 
 
 ```{r}
-voter_data <- read_csv("data/DataQuincy.csv", show_col_types = FALSE)
+data <- read_csv("data/DataQuincy.csv") |>
+  drop_na()
 ```
 
 ```{r}
-glimpse(voter_data)  
+glimpse(data)  
 ``` 
+
+```{r}
+names(data)
+```
+
+```{r}
+view(data)
+```
+
+
+
+```{r}
+
+
+data |>
+  filter(!is.na(CC20_300_4), !is.na(CL_2020ppep)) |>
+  mutate(
+    social_media = factor(CC20_300d_3,
+     labels = c("Watched", "Didn't Watch")
+    ),
+    vote_party = factor(CL_2020ppep,
+      labels = c("Democrat", "Independent", "Libertarian", "Nonpartisan", "Other", "Republican")
+    )
+  ) |>
+  ggplot(aes(x = social_media, fill = vote_party)) +
+  geom_bar(position = "fill") +
+  labs(
+    x = "Media Use (Past 24 Hours)",
+    y = "Proportion",
+    fill = "Primary Vote Party",
+    title = "Voting Behavior by Media Use",
+    subtitle = "If the Participant Watched a Political VIdeo in Past 24 Hours"
+  )
+```
+
+
+
+
 
 
