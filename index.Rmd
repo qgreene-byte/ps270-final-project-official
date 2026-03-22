@@ -22,6 +22,9 @@ I'm interested in exploring data related to overall public or Internet attitudes
 My research question is: how did social media usage impact voting behavior in the 2020 election? My hypothesis is that, while there could be a number of confounding variables, voters who had the highest prevalence of social media use tended to vote more Republican. I base this theory off of the amount of right-leaning content creators I notice that attract young, social media-heavy crowds. However, both parties practice this so there could be more Democrat voters, especially considering they won the 2020 presidential election. The explanatory variables in this study are "media use last 24 hours", and "recent social media use", which details what kind of social media the person is doing (posting, commenting, watching videos, etc.). The outcome variable of interest is party preference among voters, measured by which party (Democrat or Republican) each participant voted for. A trend towards social media use increasing likelihood of Republican voting would support my hypothesis, while the inverse would disprove my hypothesis.
 
 
+
+
+##Milestone 3
 ```{r}
 data <- read_csv("data/DataQuincy.csv") |>
   drop_na()
