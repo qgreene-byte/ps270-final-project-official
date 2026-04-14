@@ -53,7 +53,7 @@ data |>
      labels = c("Watched", "Didn't Watch")
     ),
     vote_party = factor(CL_2020ppep,
-      labels = c("Democrat", "Independent", "Libertarian", "Nonpartisan", "Other", "Republican")
+      labels = c("Democrat", "Independent", "Libertarian", "Nonpartisan", "Republican")
     )
   ) |>
   ggplot(aes(x = social_media, fill = vote_party)) +
@@ -66,9 +66,58 @@ data |>
     subtitle = "If the Participant Watched a Political VIdeo in Past 24 Hours"
   )
 ```
+```{r}
+data |>
+  filter(!is.na(CC20_300d_3), !is.na(CL_2020ppep)) |>
+  mutate(
+    social_media = factor(CC20_300d_3,
+      labels = c("Watched", "Didn't Watch")
+    ),
+    vote_party = factor(CL_2020ppep,
+      labels = c("Democrat", "Independent", "Libertarian", "Nonpartisan", "Republican")
+    )
+  ) |>
+  ggplot(aes(x = vote_party, fill = social_media)) +
+  geom_bar(position = "fill") +
+  labs(
+    x = "Vote Party",
+    y = "Proportion",
+    fill = "Media Use (Past 24 Hours)",
+    title = "Media Use by Voting Party",
+    subtitle = "Proportion of voters who watched political videos"
+  )
+```
 
 
 
+```{r}
+library(tidyr)
+library(knitr)
+
+results_table <- data |>
+  filter(!is.na(CC20_300d_3), !is.na(CL_2020ppep)) |>
+  mutate(
+    social_media = factor(CC20_300d_3,
+      labels = c("Watched", "Didn't Watch")
+    ),
+    vote_party = factor(CL_2020ppep,
+      labels = c("Democrat", "Independent", "Libertarian", "Nonpartisan", "Republican")
+    )
+  ) |>
+  count(vote_party, social_media) |>
+  group_by(vote_party) |>
+  mutate(proportion = n / sum(n)) |>
+  select(-n) |>
+  pivot_wider(names_from = social_media, values_from = proportion)
+
+kable(results_table, digits = 3)
+```
 
 
+The results suggest that social media usage, measured by whether individuals watched political videos in the past 24 hours, had only a limited impact on voting behavior in the 2020 election. Across nearly all political groups, a majority of respondents reported watching political videos, with proportions ranging from about 60% to 70%.
 
+Democrats (69.5%), Nonpartisan voters (70.0%), and Libertarians (61.5%) all show relatively similar levels of media engagement, while Republicans (60.5%) report slightly lower rates of watching political content. These differences are modest, indicating that both Democratic and Republican voters engaged with political media at comparable rates.
+
+Overall, the findings do not strongly support the hypothesis that increased social media usage is associated with higher likelihood of Republican voting. Instead, political video consumption appears to be fairly widespread regardless of party, suggesting that other factors and potential confounding variables other than short-term media exposure are more significant in shaping voting behavior.
+
+Additionally, the fact that 100% of Independent party members did not watch likely reflects a very small sample size, limiting conclusions for that group.
