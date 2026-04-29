@@ -116,7 +116,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["data/DataQuincy.csv","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-6-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.30/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["data/DataQuincy.csv","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-2-1.png","index_files/figure-html5/unnamed-chunk-3-1.png","index_files/figure-html5/unnamed-chunk-6-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.30/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1547,84 +1547,42 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span></span>
-<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span> </span></code></pre>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"data/DataQuincy.csv"</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/drop_na.html'>drop_na</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <h2 id="project-thoughts">Project thoughts</h2>
 <p>I’m interested in exploring data related to overall public or Internet attitudes, and how they relate to voting trends. For example, the prevalence of memes, viral content, profile interactions, etc. and how voting trends are effected in these areas.</p>
-<p>##Milestone 2</p>
-<p>My research question is: how did social media usage impact voting behavior in the 2020 election? My hypothesis is that, while there could be a number of confounding variables, voters who had the highest prevalence of social media use tended to vote more Republican. I base this theory off of the amount of right-leaning content creators I notice that attract young, social media-heavy crowds. However, both parties practice this so there could be more Democrat voters, especially considering they won the 2020 presidential election. The explanatory variables in this study are “media use last 24 hours”, and “recent social media use”, which details what kind of social media the person is doing (posting, commenting, watching videos, etc.). The outcome variable of interest is party preference among voters, measured by which party (Democrat or Republican) each participant voted for. A trend towards social media use increasing likelihood of Republican voting would support my hypothesis, while the inverse would disprove my hypothesis.</p>
-##Milestone 3
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"data/DataQuincy.csv"</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/drop_na.html'>drop_na</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span>  </span></code></pre>
-</div>
-<pre><code>Rows: 711
-Columns: 18
-$ ...1        &lt;dbl&gt; 1971, 2110, 2148, 2618, 2840, 2876, 3107, 3489, …
-$ CL_2020gvm  &lt;dbl&gt; 1, 1, 1, 1, 1, 4, 1, 1, 3, 2, 1, 1, 1, 1, 1, 1, …
-$ CL_2020ppep &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 6, 1, 1, 1, 1, 1, …
-$ CC20_364a   &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, …
-$ CC20_360    &lt;dbl&gt; 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 1, 2, …
-$ CC20_363    &lt;dbl&gt; 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, …
-$ CL_2020pep  &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 7, 1, 1, 1, 1, 1, …
-$ CC20_300_1  &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
-$ CC20_300_2  &lt;dbl&gt; 2, 2, 1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 2, 2, 1, 1, …
-$ CC20_300_3  &lt;dbl&gt; 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, …
-$ CC20_300_4  &lt;dbl&gt; 2, 2, 2, 1, 2, 2, 1, 2, 2, 1, 2, 2, 2, 2, 2, 2, …
-$ CC20_300_5  &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …
-$ CC20_300d_1 &lt;dbl&gt; 2, 2, 2, 1, 1, 2, 1, 1, 1, 2, 2, 2, 2, 2, 1, 2, …
-$ CC20_300d_2 &lt;dbl&gt; 2, 1, 2, 2, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 1, …
-$ CC20_300d_3 &lt;dbl&gt; 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, …
-$ CC20_300d_4 &lt;dbl&gt; 1, 1, 2, 2, 2, 2, 1, 1, 2, 2, 1, 2, 1, 2, 2, 2, …
-$ CC20_300d_5 &lt;dbl&gt; 2, 2, 2, 2, 1, 2, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, …
-$ CC20_300d_6 &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span></span></code></pre>
-</div>
-<pre><code> [1] &quot;...1&quot;        &quot;CL_2020gvm&quot;  &quot;CL_2020ppep&quot; &quot;CC20_364a&quot;  
- [5] &quot;CC20_360&quot;    &quot;CC20_363&quot;    &quot;CL_2020pep&quot;  &quot;CC20_300_1&quot; 
- [9] &quot;CC20_300_2&quot;  &quot;CC20_300_3&quot;  &quot;CC20_300_4&quot;  &quot;CC20_300_5&quot; 
-[13] &quot;CC20_300d_1&quot; &quot;CC20_300d_2&quot; &quot;CC20_300d_3&quot; &quot;CC20_300d_4&quot;
-[17] &quot;CC20_300d_5&quot; &quot;CC20_300d_6&quot;</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://tibble.tidyverse.org/reference/view.html'>view</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>)</span></span></code></pre>
-</div>
-</div>
+<p>FINAL REPORT</p>
+<p>INTRODUCTION</p>
+<p>My research question is: how did social media usage impact voting behavior in the 2020 election? My hypothesis is that, while there could be a number of confounding variables, voters who had the highest prevalence of social media use tended to vote more Republican. I base this theory off of the amount of right-leaning content creators I notice that attract young, social media-heavy crowds. However, both parties practice this so there could be more Democrat voters, especially considering they won the 2020 presidential election. A trend towards social media use increasing likelihood of Republican voting would support my hypothesis, while the inverse would disprove my hypothesis.</p>
+<p>This study is important and interesting in uncovering one potential factor behind what influences voting behavior. In our age of technology, more and more people are receiving their news from social media, oftentimes coming from less than reputable sources. Getting a better idea of how social media usage affects peoples’ party preferences in the presidential election can give us a sense of which people are getting their information from unverified sources.</p>
+<p>DATA</p>
+<p>The data used in my project is from the 2020 cooperative Election Study (CES), a national study that collects information based on political behavior, attitudes, and demographics. All data from the study was measured through a large national survey which was given after the results of the 2020 presidential election. The explanatory variable in this study is “media use last 24 hours,” which tracks whether the respondent has watched, commented, or interacted in any way with a political social media video in the 24 hours before casting their vote.</p>
+<p>The outcome variable of interest is party preference among voters, measured by which party (Democrat or Republican) each participant voted for in the 2020 presidential election. This variable is grouped into categories, including Democrat, Republican, Independent, Libertarian, and Nonpartisan. This is a cross-sectional study, taking a snapshot look at this data at a specific point in time, after the 2020 election. To summarize the dependent variable, the figure below displays the distribution of voting preferences across respondents. The plot shows the proportion of respondents in each party category, providing a general overview of the sample’s political composition.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>CC20_300_4</span><span class='op'>)</span>, <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>CL_2020ppep</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>CL_2020ppep</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
-<span>    social_media <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>CC20_300d_3</span>,</span>
-<span>     labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Watched"</span>, <span class='st'>"Didn't Watch"</span><span class='op'>)</span></span>
-<span>    <span class='op'>)</span>,</span>
 <span>    vote_party <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>CL_2020ppep</span>,</span>
 <span>      labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Democrat"</span>, <span class='st'>"Independent"</span>, <span class='st'>"Libertarian"</span>, <span class='st'>"Nonpartisan"</span>, <span class='st'>"Republican"</span><span class='op'>)</span></span>
 <span>    <span class='op'>)</span></span>
 <span>  <span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>social_media</span>, fill <span class='op'>=</span> <span class='va'>vote_party</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
-<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>position <span class='op'>=</span> <span class='st'>"fill"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>vote_party</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
-<span>    x <span class='op'>=</span> <span class='st'>"Media Use (Past 24 Hours)"</span>,</span>
-<span>    y <span class='op'>=</span> <span class='st'>"Proportion"</span>,</span>
-<span>    fill <span class='op'>=</span> <span class='st'>"Primary Vote Party"</span>,</span>
-<span>    title <span class='op'>=</span> <span class='st'>"Voting Behavior by Media Use"</span>,</span>
-<span>    subtitle <span class='op'>=</span> <span class='st'>"If the Participant Watched a Political VIdeo in Past 24 Hours"</span></span>
+<span>    x <span class='op'>=</span> <span class='st'>"Vote Party"</span>,</span>
+<span>    y <span class='op'>=</span> <span class='st'>"Count"</span>,</span>
+<span>    title <span class='op'>=</span> <span class='st'>"Distribution of Voting Preferences"</span>,</span>
+<span>    subtitle <span class='op'>=</span> <span class='st'>"CES 2020 respondents"</span></span>
 <span>  <span class='op'>)</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
 </div>
+<p>RESULTS</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data</span> <span class='op'>|&gt;</span></span>
@@ -1647,7 +1605,7 @@ $ CC20_300d_6 &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …</c
 <span>    subtitle <span class='op'>=</span> <span class='st'>"Proportion of voters who watched political videos"</span></span>
 <span>  <span class='op'>)</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1709,11 +1667,53 @@ $ CC20_300d_6 &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, …</c
 </tbody>
 </table>
 </div>
-<p>The results suggest that social media usage, measured by whether individuals watched political videos in the past 24 hours, had only a limited impact on voting behavior in the 2020 election. Across nearly all political groups, a majority of respondents reported watching political videos, with proportions ranging from about 60% to 70%.</p>
-<p>Democrats (69.5%), Nonpartisan voters (70.0%), and Libertarians (61.5%) all show relatively similar levels of media engagement, while Republicans (60.5%) report slightly lower rates of watching political content. These differences are modest, indicating that both Democratic and Republican voters engaged with political media at comparable rates.</p>
-<p>Overall, the findings do not strongly support the hypothesis that increased social media usage is associated with higher likelihood of Republican voting. Instead, political video consumption appears to be fairly widespread regardless of party, suggesting that other factors and potential confounding variables other than short-term media exposure are more significant in shaping voting behavior.</p>
-<p>Additionally, the fact that 100% of Independent party members did not watch likely reflects a very small sample size, limiting conclusions for that group.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>model_data</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>CC20_300d_3</span><span class='op'>)</span>, <span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>CL_2020ppep</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span></span>
+<span>    social_media <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>CC20_300d_3</span>,</span>
+<span>      labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Watched"</span>, <span class='st'>"Didn't Watch"</span><span class='op'>)</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    vote_party <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>CL_2020ppep</span>,</span>
+<span>      labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Democrat"</span>, <span class='st'>"Independent"</span>, <span class='st'>"Libertarian"</span>, <span class='st'>"Nonpartisan"</span>, <span class='st'>"Republican"</span><span class='op'>)</span></span>
+<span>    <span class='op'>)</span>,</span>
+<span>    watched <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/if_else.html'>if_else</a></span><span class='op'>(</span><span class='va'>social_media</span> <span class='op'>==</span> <span class='st'>"Watched"</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>fit</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>watched</span> <span class='op'>~</span> <span class='va'>vote_party</span>, data <span class='op'>=</span> <span class='va'>model_data</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>fit</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>
+Call:
+lm(formula = watched ~ vote_party, data = model_data)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-0.6799 -0.6799  0.3201  0.3201  0.6667 
+
+Coefficients:
+                      Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)            0.67994    0.01872  36.317   &lt;2e-16 ***
+vote_partyIndependent -0.67994    0.46955  -1.448    0.148    
+vote_partyLibertarian -0.34660    0.27153  -1.276    0.202    
+vote_partyNonpartisan  0.32006    0.33229   0.963    0.336    
+vote_partyRepublican  -0.05656    0.05665  -0.998    0.318    
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 0.4692 on 706 degrees of freedom
+Multiple R-squared:  0.007867,  Adjusted R-squared:  0.002246 
+F-statistic:   1.4 on 4 and 706 DF,  p-value: 0.2324</code></pre>
+</div>
+<p>The results suggest that social media usage, measured by whether individuals watched political videos in the past 24 hours, had only a limited impact on voting behavior in the 2020 election, if any. Across nearly all political groups, a majority of respondents reported watching political videos, with proportions ranging from about 60% to 70%. Republicans (60.5%) report slightly lower rates of watching political content when compared to their bicameral counterpart, Democrat voters (69.5%). These differences are modest, indicating that both Democratic and Republican voters engaged with political media at comparable rates.</p>
+<p>To further examine this relationship, I ran a linear regression predicting social media use based on voting preference. The results show that none of the party coefficients are statistically significant at the 0.05 level. For example, compared to Democrats, Republicans are estimated to be about 5.7 percentage points less likely to watch political videos, but this difference is not statistically significant. The overall model is also not statistically significant (p = 0.232), suggesting that voting preference does not meaningfully predict social media use.</p>
+<p>Overall, the findings do not strongly support the hypothesis that increased social media usage is associated with higher likelihood of Republican voting. Instead, political video consumption appears to be fairly widespread regardless of party, suggesting that other factors and potential confounding variables other than short-term media exposure are more significant in shaping voting behavior. Additionally, the fact that 100% of Independent party members did not watch likely reflects a very small sample size, limiting conclusions for that group.</p>
+<p>Because this analysis is based on observational survey data rather than a randomized experiment, the results should not be interpreted as causal. It is possible that other factors, such as age or political interest, influence both media consumption and voting behavior.</p>
+<p>CONCLUSION</p>
+<p>Overall, the results provide little support for the hypothesis that increased social media use is associated with a higher likelihood of Republican voting. While there were small differences in media consumption across political groups, these differences were not statistically significant, and the regression analysis showed that voting preference does not meaningfully predict whether individuals watched political videos. However, this analysis has several limitations. The data is observational and based on self-reported survey responses, which means the results may be affected by confounding variables such as age, political interest, or general media habits. Additionally, the measure of social media use is limited to whether respondents watched political videos in the past 24 hours, which may not fully capture longer-term exposure. If I had more time or resources, I would include additional control variables and explore alternative measures of media consumption to better isolate the relationship and improve the strength of the analysis.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
