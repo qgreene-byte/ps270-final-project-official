@@ -1,6 +1,6 @@
 ---
 title: "PS270 Final Project"
-author: "Quincy Greenee"
+author: "Quincy Greene"
 description: "My final project"
 output:
   distill::distill_article:
@@ -15,10 +15,6 @@ data <- read_csv("data/DataQuincy.csv") |>
   drop_na()
 ```
 
-
-## Project thoughts
-
-I'm interested in exploring data related to overall public or Internet attitudes, and how they relate to voting trends. For example, the prevalence of memes, viral content, profile interactions, etc. and how voting trends are effected in these areas.
 
 
 FINAL REPORT
@@ -36,7 +32,7 @@ This study is important and interesting in uncovering one potential factor behin
 
 DATA
 
-The data used in my project is from the 2020 cooperative Election Study (CES), a national study that collects information based on political behavior, attitudes, and demographics. All data from the study was measured through a large national survey which was given after the results of the 2020 presidential election. The explanatory variable in this study is "media use last 24 hours," which tracks whether the respondent has watched, commented, or interacted in any way with a political social media video in the 24 hours before casting their vote. 
+The data used in my project is from the 2020 cooperative Election Study (CES), which is a national study that collects information based on political behavior, attitudes, and demographics. All data from the study was measured through a large national survey which was given after the results of the 2020 presidential election. The explanatory variable in this study is "media use last 24 hours," which keeps a count of whether the respondent has watched, commented, or interacted in any way with a political social media video in the past 24 hours. 
 
 The outcome variable of interest is party preference among voters, measured by which party (Democrat or Republican) each participant voted for in the 2020 presidential election. This variable is grouped into categories, including Democrat, Republican, Independent, Libertarian, and Nonpartisan. This is a cross-sectional study, taking a snapshot look at this data at a specific point in time, after the 2020 election. To summarize the dependent variable, the figure below displays the distribution of voting preferences across respondents. The plot shows the proportion of respondents in each party category, providing a general overview of the sample’s political composition.
 
@@ -132,11 +128,11 @@ summary(fit)
 
 
 
-The results suggest that social media usage, measured by whether individuals watched political videos in the past 24 hours, had only a limited impact on voting behavior in the 2020 election, if any. Across nearly all political groups, a majority of respondents reported watching political videos, with proportions ranging from about 60% to 70%. Republicans (60.5%) report slightly lower rates of watching political content when compared to their bicameral counterpart, Democrat voters (69.5%). These differences are modest, indicating that both Democratic and Republican voters engaged with political media at comparable rates.
+The results suggest that social media usage, measured by whether individuals watched political videos in the past 24 hours, had only a limited relationship with voting behavior in the 2020 election, if any. Across nearly all political groups, a majority of respondents reported watching political videos, with proportions ranging from about 60% to 70%. Republicans (60.5%) report slightly lower rates of watching political content when compared to Democrat voters (69.5%). These differences are modest, indicating that both Democratic and Republican voters engaged with political media at comparable rates.
 
 To further examine this relationship, I ran a linear regression predicting social media use based on voting preference. The results show that none of the party coefficients are statistically significant at the 0.05 level. For example, compared to Democrats, Republicans are estimated to be about 5.7 percentage points less likely to watch political videos, but this difference is not statistically significant. The overall model is also not statistically significant (p = 0.232), suggesting that voting preference does not meaningfully predict social media use.
 
-Overall, the findings do not strongly support the hypothesis that increased social media usage is associated with higher likelihood of Republican voting. Instead, political video consumption appears to be fairly widespread regardless of party, suggesting that other factors and potential confounding variables other than short-term media exposure are more significant in shaping voting behavior. Additionally, the fact that 100% of Independent party members did not watch likely reflects a very small sample size, limiting conclusions for that group.
+Overall, the findings do not strongly support the hypothesis that increased social media usage is associated with higher likelihood of Republican voting. Instead, political video consumption appears to be fairly widespread regardless of party, suggesting that other factors and potential confounders other than social media exposure are more significant in shaping voting behavior. Additionally, Independent and Nonpartisan categories appear to have very small sample sizes, so I avoid drawing strong conclusions from them.
 
 Because this analysis is based on observational survey data rather than a randomized experiment, the results should not be interpreted as causal. It is possible that other factors, such as age or political interest, influence both media consumption and voting behavior.
 
